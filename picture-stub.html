@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片占位符</title>
+    <style>
+        #box{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img{
+            max-width: 350;
+            max-height: 350px;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id=box>
+        <img data-src="http://i4.buimg.com/567571/238243ac5d53d49d.jpg" src="http://i2.muimg.com/567571/c89b0e6e95898f22.gif">
+        <img data-src="http://i1.piimg.com/567571/32f9375ff54424fc.jpg" src="http://i2.muimg.com/567571/c89b0e6e95898f22.gif">
+    </div>
+    <script>
+        var NewImage = document.getElementsByTagName('img') 
+        for(i=0;i<NewImage.length;i++){          
+            var img = NewImage[i]             
+            let url = img.getAttribute('data-src')  
+            let tempImage = new Image()
+            tempImage.src = url  
+            tempImage.setAttribute('index',i)
+            tempImage.onload = function(){
+                var index = tempImage.getAttribute('index')
+                NewImage[index].src=url
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
